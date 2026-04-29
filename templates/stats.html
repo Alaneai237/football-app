@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Football Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="navbar">
+    <a href="/logout"><button>logout	</button></a>
+    <a href="javascript:history.back()"><button>⬅ Back</button></a>
+    <a href="/addplayer"><button>➕ Add</button></a>
+</div>
+
+<div class="container">
+
+<h1>⚽ Football Analytics Dashboard</h1>
+
+<div class="card">
+    <h2>📊 Statistics</h2>
+    <p>Total Players: {{ total }}</p>
+    <p>Average Age: {{ age_moy }}</p>
+    <p>Average Speed: {{ speed_moy }} km/h</p>
+</div>
+
+<div class="card">
+    <h2>🏆 Best Player</h2>
+    {% if best_player %}
+        <p>{{ best_player[1] }} - Speed: {{ best_player[4] }}</p>
+    {% else %}
+        <p>No player available</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h2>📈 Performance Graph</h2>
+    <img src="/static/graph.png" width="100%">
+</div>
+
+<div class="card">
+    <h2>📊 Âge vs Vitesse</h2>
+    <img src="/static/scatter.png" width="100%">
+</div>
+
+<div class="card">
+    <h2>🥇 Top 3 Players</h2>
+    <ol>
+    {% for p in players[:3] %}
+        <li>{{ p[1] }} - Speed: {{ p[4] }} km/h</li>
+    {% endfor %}
+    </ol>
+</div>
+
+<div class="card">
+    <h2>🗑️ Manage Players</h2>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Position</th>
+            <th>Speed</th>
+            <th>Delete</th>
+        </tr>
+
+        {% for p in players %}
+        <tr>
+            <td>{{ p[0] }}</td>
+            <td>{{ p[1] }}</td>
+            <td>{{ p[2] }}</td>
+            <td>{{ p[3] }}</td>
+            <td>{{ p[4] }}</td>
+
+            <td>
+                <form action="/delete/{{ p[0] }}" method="POST"
+                      onsubmit="return confirm('Delete this player ?');">
+                    <button type="submit"
+                        style="background:red; color:white; border:none; padding:5px;">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+<a href="/boxplot-all"><button>boxplot</button></a><br><br>
+<a href="/export"><button>Exporter CSV</button></a>
+<a href="/"><button>Back</button></a>
+
+</div>
+
+</body>
+</html>

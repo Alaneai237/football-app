@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Football Data Collector</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+<div class="navbar">
+    <a href="/logout"><button> Se logout</button></a>
+    <a href="javascript:history.back()"><button>⬅ Back</button></a>
+    <a href="/stats"><button>📊 Stats</button></a>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h1>🔵 Citizens Player Registration ⚽</h1>
+
+<form action="/add" method="POST">
+
+<label>Player Name</label><br>
+<input type="text" name="name" placeholder="Ex: Haaland" required><br><br>
+
+<label>Age</label><br>
+<input type="number" name="age" placeholder="Ex: 24" required><br><br>
+
+<label>Position</label><br>
+<select name="position" id="position" required>
+   <option value="GK">GK- Gardien de but </option>
+   <option value="CB">CB- Défenseur central </option>
+   <option value="LB">LB- Latéral gauche </option>
+   <option value="RB">RB- Latéral droit </option>
+   <option value="WB">WB- Pistons (wing-back) </option>
+   <option value="CDM">CDM- Milieu défensif </option>
+   <option value="CM">CM- Milieu central </option>
+   <option value="CAM">CAM- Milieu offensif </option>
+   <option value="LM">LM- Milieu gauche </option>
+   <option value="RM">RM- Milieu droit  </option>
+   <option value="LW">LW- Ailier gauche </option>
+   <option value="RW">RW- Ailier droit </option>
+   <option value="ST">ST- Avant centre(Striker) </option>
+   <option value="CF">CF- Attaquant de soutien(Central Forward) </option>
+</select><br><br>
+
+
+<label>Speed (km/h)</label><br>
+<input type="number" name="speed" placeholder="Ex: 36" required><br><br>
+
+<button type="submit">Save Player</button>
+
+</form>
+
+<br>
+
+<a href="/stats"><button>View Statistics</button></a>
+
+</div>
+
+</div>
+
+</body>
+</html>
