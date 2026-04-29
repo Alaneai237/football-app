@@ -7,10 +7,9 @@ import io
 import base64
 
 app = Flask(__name__)
-app.secret_key = "football_secret_key_2026"
 
-ADMIN_PASSWORD = "1234"
-
+app.secret_key = os.environ.get('SECRET_KEY', 'fallback_key_à_changer_en_production')
+ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'changeme')
 def init_db():
     conn = sqlite3.connect("players.db")
     c = conn.cursor()
