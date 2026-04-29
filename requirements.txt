@@ -1,20 +1,5 @@
-blinker==1.9.0
-click==8.3.3
-contourpy @ file:///home/builder/.termux-build/python-contourpy/src/dist/contourpy-1.3.3-cp313-cp313-android_aarch64.whl#sha256=11521d1c511258a11666302bcf9a72419ea852d15bb1f70beabcf7d72812600f
-cycler==0.12.1
-Flask==3.1.3
-fonttools==4.62.1
-itsdangerous==2.2.0
-Jinja2==3.1.6
-kiwisolver==1.5.0
-MarkupSafe==3.0.3
-matplotlib @ file:///home/builder/.termux-build/matplotlib/src/dist/matplotlib-3.10.9-cp313-cp313-android_aarch64.whl#sha256=95905b0b1e8d442ec81c917ae552d5ffa70474d5a0af97649a21c238799d746c
-numpy @ file:///home/builder/.termux-build/python-numpy/src/dist/numpy-2.4.4-cp313-cp313-android_aarch64.whl#sha256=1ae053b54524edf1054aabe7c12e005fb453dc2fd0d17353c7a2056d07a11755
-packaging==26.2
-pillow @ file:///home/builder/.termux-build/python-pillow/src
-pyparsing==3.3.2
-python-dateutil==2.9.0.post0
-setuptools==82.0.1
-six==1.17.0
-Werkzeug==3.1.8
-wheel==0.47.0
+flask==3.1.3
+gunicorn
+matplotlib
+numpy
+pandas
