@@ -280,6 +280,61 @@ def stats():
         best_player=best_player
     )
 
+
+@app.route("/analysis")
+def analysis():
+    conn = sqlite3.connect("players.db")
+    c = conn.cursor()
+    c.execute("SELECT * FROM players")
+    players = c.fetchall()
+    conn.close()
+
+    total = len(players)
+
+    if total > 0:
+        ages = [p[2] for p in players]
+        speeds = [p[4] for p in players]
+
+        # Moyennes
+        age_mean = sum(ages) / total
+        speed_mean = sum(speeds) / total
+
+        # Variance
+        age_var = sum((x - age_mean)**2 for x in ages) / total
+        speed_var = sum((x - speed_mean)**2 for x in speeds) / total
+
+        # Écart type
+        age_std = age_var ** 0.5
+        speed_std = speed_var ** 0.5
+
+        # Covariance (âge vs vitesse)
+        cov_age_speed = sum((ages[i] - age_mean)*(speeds[i] - speed_mean) for i in range(total)) / total
+
+        # Corrélation
+        if age_std != 0 and speed_std != 0:
+            corr_age_speed = cov_age_speed / (age_std * speed_std)
+        else:
+            corr_age_speed = 0
+
+    else:
+        age_mean = speed_mean = 0
+        age_var = speed_var = 0
+        age_std = speed_std = 0
+        cov_age_speed = 0
+        corr_age_speed = 0
+
+    return render_template(
+        "analysis.html",
+        age_mean=round(age_mean,2),
+        speed_mean=round(speed_mean,2),
+        age_var=round(age_var,2),
+        speed_var=round(speed_var,2),
+        age_std=round(age_std,2),
+        speed_std=round(speed_std,2),
+        cov_age_speed=round(cov_age_speed,2),
+        corr_age_speed=round(corr_age_speed,2)
+    )
+
 @app.route("/export")
 def export():
     

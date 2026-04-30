@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Analysis</title>
+    <link rel="stylesheet" href="/static/analysis.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <a href="/"><button>🏠 Home</button></a>
+    <a href="/stats"><button>📊 Stats</button></a>
+    <a href="/addplayer"><button>➕ Add</button></a>
+</div>
+
+<h1>📊 Advanced Football Analytics</h1>
+
+<!-- CARDS RÉSUMÉ -->
+<div class="dashboard">
+
+<div class="mini-card">
+<h3>Avg Age</h3>
+<p>{{ age_mean }}</p>
+</div>
+
+<div class="mini-card">
+<h3>Avg Speed</h3>
+<p>{{ speed_mean }} km/h</p>
+</div>
+
+<div class="mini-card">
+<h3>Std Age</h3>
+<p>{{ age_std }}</p>
+</div>
+
+<div class="mini-card">
+<h3>Std Speed</h3>
+<p>{{ speed_std }}</p>
+</div>
+
+</div>
+
+<!-- TABLEAU 1 -->
+<div class="card">
+<h2>📈 Univariate Analysis</h2>
+
+<table>
+<tr>
+<th>Variable</th>
+<th>Mean</th>
+<th>Variance</th>
+<th>Std Dev</th>
+</tr>
+
+<tr>
+<td>Age</td>
+<td>{{ age_mean }}</td>
+<td>{{ age_var }}</td>
+<td>{{ age_std }}</td>
+</tr>
+
+<tr>
+<td>Speed</td>
+<td>{{ speed_mean }}</td>
+<td>{{ speed_var }}</td>
+<td>{{ speed_std }}</td>
+</tr>
+
+</table>
+</div>
+
+<!-- TABLEAU 2 -->
+<div class="card">
+<h2>📊 Bivariate Analysis</h2>
+
+<table>
+<tr>
+<th>Variables</th>
+<th>Covariance</th>
+<th>Correlation</th>
+</tr>
+
+<tr>
+<td>Age vs Speed</td>
+<td>{{ cov_age_speed }}</td>
+<td>{{ corr_age_speed }}</td>
+</tr>
+
+</table>
+
+</div>
+
+<!-- INTERPRÉTATION -->
+<div class="card">
+<h2>🧠 Interpretation</h2>
+
+<p>
+Correlation Age-Speed :
+<strong>
+{% if corr_age_speed > 0.5 %}
+Strong positive relationship
+{% elif corr_age_speed > 0 %}
+Weak positive relationship
+{% elif corr_age_speed < -0.5 %}
+Strong negative relationship
+{% elif corr_age_speed < 0 %}
+Weak negative relationship
+{% else %}
+No correlation
+{% endif %}
+</strong>
+</p>
+
+</div>
+
+</div>
+
+</body>
+</html>

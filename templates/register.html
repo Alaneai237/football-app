@@ -1,19 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Register</title>
-</head>
-<body>
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <title>register form</title>
+        <link rel="stylesheet" href="/static//login.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="styles>
+        <style>
+               body{
+                    font-family: 'Poppins', sans-serif;
+               }
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<h2>🧾 Inscription</h2>
+  </head>
+  <body>
+       <section>
+               <h1>S'inscrire</h1>
+            <form method="POST" action="/register">
+               <div class="input-box">
+                  <input type="text" name="username" placeholder="Nom d'utilisateur" >
+                  <i class="fas  fa-user"></i>
+               </div>
+               <div class="input-box">
+                 <input type="password" name="password" placeholder="Mot de passe" required>
+                 <i class="fas fa-lock"></i>
+               </div>
 
-<form method="POST">
-    <input type="text" name="username" placeholder="Username" required><br><br>
-    <input type="password" name="password" placeholder="Password" required><br><br>
-    <button type="submit">Register</button>
-</form>
+               <button type="submit"  class="login-btn">Validé</button>
+            </form>
+               <div class="register-link">
+                 <p>Vous avez déjà un compte? <br> <a href="/login">Se connecter</a></p>
+               </div>
 
-<a href="/login">Login</a>
-
-</body>
+       </section>
+  </body>
 </html>

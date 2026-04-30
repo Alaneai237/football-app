@@ -1,0 +1,63 @@
+
+* Rendre le texte plus lisible */
+.container, .card, .mini-card, table, h1, h2, h3, p {
+    color: white;
+}
+
+/* Ajouter un fond semi-transparent mais plus opaque aux cartes */
+.mini-card {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    color: white;
+}
+
+.card {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+    color: white;
+}
+
+/* Style du tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+th {
+    background: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+}
+
+/* Améliorer les boutons si nécessaire */
+button {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Navbar */
+.navbar {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
